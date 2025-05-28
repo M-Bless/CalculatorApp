@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const CalculatorApp());
@@ -13,11 +14,8 @@ class CalculatorApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      theme: ThemeData(primarySwatch: Colors.deepPurple),
+      home: const MyHomePage(title: 'Flutter Calculator'),
     );
   }
 }
@@ -41,21 +39,48 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-
+        backgroundColor: Colors.deepPurple,
+        centerTitle: true,
+        title: Text('Flutter Calculator'),
       ),
-      body: Center(
+      backgroundColor: Colors.blueGrey,
+      body: Container(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text('Calculator will be here'),
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Row(
+              children: [
+                Container(
+                  margin: EdgeInsets.all(10.0),
+                  child: SizedBox(
+                    width: 70,
+                    height: 70,
 
+                    child: ElevatedButton(
+                        onPressed: (){
+                        },
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5.0),
+
+                      ),
+                    ),
+                      child: Text(
+                        '9',
+                        style: GoogleFonts.rubik(
+                          textStyle: TextStyle(fontSize: 24),
+                          color: Color(0xFF8ac4d0),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),
