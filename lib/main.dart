@@ -11,8 +11,6 @@ class CalculatorApp extends StatelessWidget {
 
   // This widget is the root of your application.
 
-
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -57,10 +55,12 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       backgroundColor: Colors.blueGrey,
       body: Container(
+        padding: EdgeInsets.all(8.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Container(
+              alignment: Alignment(1.0,1.0),
               child:Padding(
                 padding: EdgeInsets.all(12),
                 child: Text(
@@ -73,7 +73,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
               ),
-              alignment: Alignment(1.0,1.0),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -82,28 +81,28 @@ class _MyHomePageState extends State<MyHomePage> {
                   text:'AC',
                   fillColor: 0xFF8AC4D0,
                   textColor: 0xFF000000,
-                  textSize: 22,
+                  textSize: 20,
                    callback:btnOnClick,
                 ),
                 CalculatorButton(
                   text:'C',
                   fillColor: 0xFF8AC4D0,
                   textColor: 0xFF000000,
-                  textSize: 24,
+                  textSize: 20,
                   callback:btnOnClick,
                 ),
                 CalculatorButton(
                   text:'<',
                   fillColor: 0xFF8AC4D0,
                   textColor: 0xFF000000,
-                  textSize: 24,
+                  textSize: 20,
                   callback:btnOnClick,
                 ),
                 CalculatorButton(
                   text:'/',
                   fillColor: 0xFF8AC4D0,
                   textColor: 0xFF000000,
-                  textSize: 24,
+                  textSize: 20,
                   callback:btnOnClick,
 
                 ),
@@ -116,28 +115,28 @@ class _MyHomePageState extends State<MyHomePage> {
                   text:'9',
                   fillColor: 0xFF8AC4D0,
                   textColor: 0xFF000000,
-                  textSize: 24,
+                  textSize: 20,
                   callback:btnOnClick,
                 ),
                 CalculatorButton(
                   text:'8',
                   fillColor: 0xFF8AC4D0,
                   textColor: 0xFF000000,
-                  textSize: 24,
+                  textSize: 20,
                   callback:btnOnClick,
                 ),
                 CalculatorButton(
                   text:'7',
                   fillColor: 0xFF8AC4D0,
                   textColor: 0xFF000000,
-                  textSize: 24,
+                  textSize: 20,
                   callback:btnOnClick,
                 ),
                 CalculatorButton(
                   text:'X',
                   fillColor: 0xFF8AC4D0,
                   textColor: 0xFF000000,
-                  textSize: 24,
+                  textSize: 20,
                   callback:btnOnClick,
                 ),
               ],
@@ -149,28 +148,28 @@ class _MyHomePageState extends State<MyHomePage> {
                   text:'6',
                   fillColor: 0xFF8AC4D0,
                   textColor: 0xFF000000,
-                  textSize: 24,
+                  textSize: 20,
                   callback:btnOnClick,
                 ),
                 CalculatorButton(
                   text:'5',
                   fillColor: 0xFF8AC4D0,
                   textColor: 0xFF000000,
-                  textSize: 24,
+                  textSize: 20,
                   callback:btnOnClick,
                 ),
                 CalculatorButton(
                   text:'4',
                   fillColor: 0xFF8AC4D0,
                   textColor: 0xFF000000,
-                  textSize: 24,
+                  textSize: 20,
                   callback:btnOnClick,
                 ),
                 CalculatorButton(
                   text:'-',
                   fillColor: 0xFF8AC4D0,
                   textColor: 0xFF000000,
-                  textSize: 24,
+                  textSize: 20,
                   callback:btnOnClick,
                 ),
               ],
@@ -182,14 +181,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   text:'3',
                   fillColor: 0xFF8AC4D0,
                   textColor: 0xFF000000,
-                  textSize: 24,
+                  textSize: 20,
                   callback:btnOnClick,
                 ),
                 CalculatorButton(
                   text:'2',
                   fillColor: 0xFF8AC4D0,
                   textColor: 0xFF000000,
-                  textSize: 24,
+                  textSize: 20,
                   callback:btnOnClick,
                 ),
                 CalculatorButton(
@@ -203,7 +202,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   text:'+',
                   fillColor: 0xFF8AC4D0,
                   textColor: 0xFF000000,
-                  textSize: 24,
+                  textSize: 20,
                   callback:btnOnClick,
                 ),
               ],
@@ -222,21 +221,21 @@ class _MyHomePageState extends State<MyHomePage> {
                   text:'0',
                   fillColor: 0xFF8AC4D0,
                   textColor: 0xFF000000,
-                  textSize: 24,
+                  textSize: 20,
                   callback:btnOnClick,
                 ),
                 CalculatorButton(
                   text:'00',
                   fillColor: 0xFF8AC4D0,
                   textColor: 0xFF000000,
-                  textSize: 24,
+                  textSize: 20,
                   callback:btnOnClick,
                 ),
                 CalculatorButton(
                   text:'=',
                   fillColor: 0xFF8AC4D0,
                   textColor: 0xFF000000,
-                  textSize: 24,
+                  textSize: 20,
                   callback:btnOnClick,
                 ),
               ],
