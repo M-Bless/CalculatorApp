@@ -6,10 +6,14 @@ void main() {
   runApp(const CalculatorApp());
 }
 
-class CalculatorApp extends StatelessWidget {
+class CalculatorApp extends StatefulWidget {
   const CalculatorApp({super.key});
 
-  // This widget is the root of your application.
+  @override
+  State<CalculatorApp> createState() => _CalculatorAppState();
+}
+
+class _CalculatorAppState extends State<CalculatorApp> {
 
   @override
   Widget build(BuildContext context) {
@@ -25,15 +29,6 @@ class CalculatorApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
   final String title;
 
   @override
@@ -41,8 +36,73 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int firstNum = 0;
+  int secondNum = 0;
+  String history = '';
+  String textToDisplay = '';
+  late String res;
+  late String operation;
+
+
   void btnOnClick(String btnVal){
     print(btnVal);
+    if(btnVal == 'C'){
+      textToDisplay= '';
+      firstNum=0;
+      secondNum=0;
+      res='';
+    }
+      else if(btnVal == 'AC'){
+      textToDisplay= '';
+      firstNum=0;
+      secondNum=0;
+      res='';
+      history='';
+    } else if (btnVal == '+/-'){
+        if(textToDisplay[0] != '-'){
+          res = '-'+textToDisplay;
+        } else{
+          res = textToDisplay.substring(1);
+        }
+    }else if (btnVal == '<') {
+      if (textToDisplay.isNotEmpty) {
+        res = textToDisplay.substring(0, textToDisplay.length - 1);
+      }
+    }
+
+
+    else if (btnVal == '+' ||
+       btnVal == '-' ||
+        btnVal == 'X' ||
+        btnVal == '/'){
+           firstNum = int.parse(textToDisplay);
+           res='';
+           operation = btnVal;
+    } else if (btnVal == '='){
+        secondNum = int.parse(textToDisplay);
+        if(operation == '+'){
+          res =(firstNum + secondNum).toString();
+          history= firstNum.toString() + operation.toString()+ secondNum.toString();
+        }
+        if(operation == '-'){
+          res =(firstNum - secondNum).toString();
+          history= firstNum.toString() + operation.toString()+ secondNum.toString();
+        }
+        if(operation == 'X'){
+          res =(firstNum * secondNum).toString();
+          history= firstNum.toString() + operation.toString()+ secondNum.toString();
+        }
+        if(operation == '/'){
+          res =(firstNum / secondNum).toString();
+          history= firstNum.toString() + operation.toString()+ secondNum.toString();
+        }
+    } else{
+        res= int.parse(textToDisplay + btnVal).toString();
+    }
+     setState(() {
+       textToDisplay=res;
+     });
+
   }
 
   @override
@@ -60,11 +120,26 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Container(
+              alignment:Alignment(1.0, 1.0),
+              child: Padding(
+              padding: EdgeInsets.only(right: 12),
+              child: Text(
+                history,
+                style: GoogleFonts.rubik(
+                    textStyle: TextStyle(
+                      fontSize: 24,
+                      color: Color(0x66FFFFFF),
+                    ),
+                ),
+              ),
+            ),
+    ),
+            Container(
               alignment: Alignment(1.0,1.0),
               child:Padding(
                 padding: EdgeInsets.all(12),
                 child: Text(
-                  '987',
+                  textToDisplay,
                   style: GoogleFonts.rubik(
                     textStyle: TextStyle(
                       fontSize: 48,
